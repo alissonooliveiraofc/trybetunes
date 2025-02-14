@@ -14,13 +14,21 @@ function Search() {
     }
   }
 
-  function handleClick() {
-    setSearchValue('');
-  }
   const [disabled, setDisabled] = useState(true);
   const [searchValue, setSearchValue] = useState('');
-  const [loading, setLoading] = useState('false');
+  const [loading, setLoading] = useState(false);
+  const [apiResponse, setApiResponse] = useState();
 
+  useEffect(() => {
+    const fetchApi = async () => {
+      const data = await searchAlbumsAPI(searchValue);
+      setLoading(false);
+      // setApiResponse(data);
+      console.log(data);
+    };
+
+    if (loading) { fetchApi(); }
+  }, [searchValue, loading, apiResponse]);
   return (
     <div>
       <input
@@ -34,11 +42,14 @@ function Search() {
       <button
         data-testid="search-artist-button"
         disabled={ disabled }
-        onClick={ handleClick }
+        onClick={ () => setLoading(true) }
       >
         Pesquisar
       </button>
 
+      {loading ? (
+        <Loading />
+      ) : null}
     </div>
   );
 }
