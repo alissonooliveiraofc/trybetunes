@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import searchAlbumsAPI from '../../services/searchAlbumsAPI';
 import Loading from '../../components/Loading';
+import { AlbumType } from '../../types';
 
 function Search() {
   function onChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -14,21 +16,30 @@ function Search() {
     }
   }
 
+  async function handleClick() {
+    setLoading(true);
+    setApiData(null);
+    setArtist('');
+
+    const data = await searchAlbumsAPI(searchValue);
+
+    setArtist(searchValue);
+    setLoading(false);
+
+    if (data.length === 0) { setErrorApi('Nenhum álbum foi encontrado'); }
+    setApiData(data);
+    setSearchValue('');
+    return apiData;
+  }
+
   const [disabled, setDisabled] = useState(true);
   const [searchValue, setSearchValue] = useState('');
   const [loading, setLoading] = useState(false);
-  const [apiResponse, setApiResponse] = useState();
+  const [artist, setArtist] = useState('');
+  const [errorApi, setErrorApi] = useState('');
 
-  useEffect(() => {
-    const fetchApi = async () => {
-      const data = await searchAlbumsAPI(searchValue);
-      setLoading(false);
-      // setApiResponse(data);
-      console.log(data);
-    };
+  const [apiData, setApiData] = useState<AlbumType[] | null>();
 
-    if (loading) { fetchApi(); }
-  }, [searchValue, loading, apiResponse]);
   return (
     <div>
       <input
@@ -42,7 +53,7 @@ function Search() {
       <button
         data-testid="search-artist-button"
         disabled={ disabled }
-        onClick={ () => setLoading(true) }
+        onClick={ handleClick }
       >
         Pesquisar
       </button>
@@ -50,6 +61,31 @@ function Search() {
       {loading ? (
         <Loading />
       ) : null}
+
+      {artist && (
+        <p>
+          Resultado de álbuns de:
+          {' '}
+          {artist}
+        </p>
+      )}
+
+      {apiData ? (
+        <ul>
+          {apiData.map((album) => (
+            <li key={ album.collectionId }>
+              <Link
+                to={ `/album/${album.collectionId}` }
+                data-testid={ `link-to-album-${album.collectionId}` }
+              >
+                <img src={ album.artworkUrl100 } alt={ album.collectionName } />
+                <p>{album.collectionName}</p>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      ) : errorApi}
+
     </div>
   );
 }
