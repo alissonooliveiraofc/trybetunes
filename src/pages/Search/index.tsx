@@ -17,6 +17,7 @@ function Search() {
   }
 
   async function handleClick() {
+    setErrorApi('');
     setLoading(true);
     setApiData(null);
     setArtist('');
@@ -26,8 +27,12 @@ function Search() {
     setArtist(searchValue);
     setLoading(false);
 
-    if (data.length === 0) { setErrorApi('Nenhum álbum foi encontrado'); }
-    setApiData(data);
+    if (data.length === 0) {
+      setErrorApi('Nenhum álbum foi encontrado');
+    } else {
+      setApiData(data);
+    }
+
     setSearchValue('');
     return apiData;
   }
@@ -70,7 +75,10 @@ function Search() {
         </p>
       )}
 
-      {apiData ? (
+      {errorApi && !loading && (
+        <p>{errorApi}</p>
+      )}
+      {apiData && (
         <ul>
           {apiData.map((album) => (
             <li key={ album.collectionId }>
@@ -84,7 +92,7 @@ function Search() {
             </li>
           ))}
         </ul>
-      ) : errorApi}
+      )}
 
     </div>
   );
