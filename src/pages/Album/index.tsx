@@ -20,8 +20,6 @@ function Album() {
     fetchMusics();
   }, [id]);
 
-  // console.log(allAlbuns);
-
   return (
     <main>
       { allAlbuns && (

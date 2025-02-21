@@ -17,4 +17,3 @@ function Header() {
 }
 
 export default Header;
-// pesquisa, favoritos e perfil
