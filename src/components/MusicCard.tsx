@@ -1,6 +1,6 @@
 import { SongType } from '../types';
 
-function MusicCard({ trackName, previewUrl }: SongType) {
+function MusicCard({ trackName, previewUrl, trackId }: SongType) {
   return (
     <div>
       <p>{trackName}</p>
@@ -12,6 +12,9 @@ function MusicCard({ trackName, previewUrl }: SongType) {
         <code>audio</code>
 
       </audio>
+      <label htmlFor="" data-testid={ `checkbox-music-${trackId}` }>
+        <input type="checkbox" name="" id="" />
+      </label>
     </div>
   );
 }
