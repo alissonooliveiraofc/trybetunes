@@ -1,13 +1,35 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { SongType } from '../types';
 import checkedHeart from '../images/checked_heart.png';
 import emptyHeart from '../images/empty_heart.png';
+import { addSong, removeSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 function MusicCard({ trackName, previewUrl, trackId }: SongType) {
   const [favorited, setFavorited] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
 
-  const handleFavoriteToggle = () => {
-    setFavorited(!favorited);
+  useEffect(() => {
+    const checkIfFavorited = async () => {
+      const favoriteSongs = await getFavoriteSongs();
+      const isFavorited = favoriteSongs
+        .some((song: SongType) => song.trackId === trackId);
+      setFavorited(isFavorited);
+      setLoading(false);
+    };
+
+    checkIfFavorited();
+  }, [trackId]);
+
+  const handleFavoriteToggle = async () => {
+    setLoading(true);
+    if (favorited) {
+      await removeSong({ trackName, previewUrl, trackId });
+      setFavorited(false);
+    } else {
+      await addSong({ trackName, previewUrl, trackId });
+      setFavorited(true);
+    }
+    setLoading(false);
   };
 
   return (
@@ -29,12 +51,15 @@ function MusicCard({ trackName, previewUrl, trackId }: SongType) {
           id={ `checkbox-music-${trackId}` }
           checked={ favorited }
           onChange={ handleFavoriteToggle }
+          disabled={ loading }
         />
         <img
           src={ favorited ? checkedHeart : emptyHeart }
           alt="favorite"
         />
       </label>
+      {/* Talvez colocar um spinner aqui */}
+      {loading && <p>Carregando...</p>}
     </div>
   );
 }
