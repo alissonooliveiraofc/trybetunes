@@ -4,7 +4,16 @@ import checkedHeart from '../images/checked_heart.png';
 import emptyHeart from '../images/empty_heart.png';
 import { addSong, removeSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 
-function MusicCard({ trackName, previewUrl, trackId }: SongType) {
+interface MusicCardProps extends SongType {
+  onFavoriteChange?: (trackId: number) => void;
+}
+
+function MusicCard({
+  trackName,
+  previewUrl,
+  trackId,
+  onFavoriteChange = () => {},
+}: MusicCardProps) {
   const [favorited, setFavorited] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -25,6 +34,9 @@ function MusicCard({ trackName, previewUrl, trackId }: SongType) {
     if (favorited) {
       await removeSong({ trackName, previewUrl, trackId });
       setFavorited(false);
+      if (onFavoriteChange) {
+        onFavoriteChange(trackId);
+      }
     } else {
       await addSong({ trackName, previewUrl, trackId });
       setFavorited(true);
@@ -58,7 +70,6 @@ function MusicCard({ trackName, previewUrl, trackId }: SongType) {
           alt="favorite"
         />
       </label>
-      {/* Talvez colocar um spinner aqui */}
       {loading && <p>Carregando...</p>}
     </div>
   );

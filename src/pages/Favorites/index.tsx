@@ -16,7 +16,12 @@ function Favorites() {
     };
 
     fetchFavoriteSongs();
-  }, [allFavoritesSongs]);
+  }, []);
+
+  const handleFavoriteChange = (trackId: number) => {
+    setAllFavoritesSongs((prevSongs) => prevSongs
+      .filter((song) => song.trackId !== trackId));
+  };
 
   return (
     <main>
@@ -28,6 +33,7 @@ function Favorites() {
           trackName={ song.trackName }
           previewUrl={ song.previewUrl }
           trackId={ song.trackId }
+          onFavoriteChange={ handleFavoriteChange }
         />
       ))}
     </main>
