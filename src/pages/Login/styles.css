@@ -42,7 +42,7 @@ main input {
   font-family: "Josefin Sans", serif;
 
   &:focus {
-    border-color: #08DDD2;
+    border-color: #08ddd2;
   }
 
   &:focus::placeholder {
@@ -72,4 +72,19 @@ main button {
     background-color: darkblue;
     cursor: pointer;
   }
+}
+
+h2 {
+  font-family: "Josefin Sans", serif;
+  color: white;
+  display: block;
+}
+
+.loading{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  
 }

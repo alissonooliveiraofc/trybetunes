@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, CSSProperties } from 'react';
+import PacmanLoader from 'react-spinners/PacmanLoader';
 import { createUser } from '../../services/userAPI';
 import './styles.css';
 
@@ -34,9 +35,24 @@ function Login() {
     setLoading(true);
   }
 
+  const override: CSSProperties = {
+    display: 'block',
+    margin: '0 auto',
+
+  };
+
   return (
     <div className="login">
-      {loading ? <h2>Carregando...</h2> : (
+      {loading ? (
+        <div className="loading">
+          <h2>Carregando...</h2>
+          <PacmanLoader
+            color="white"
+            loading={ loading }
+            cssOverride={ override }
+          />
+        </div>
+      ) : (
         <main>
           <img src="src/images/image.png" alt="" />
           <input
