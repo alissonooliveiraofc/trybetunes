@@ -6,30 +6,39 @@ import { UserType } from '../../types';
 
 function ProfileEdit() {
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState<UserType>();
-  const [buttonState, setButtonState] = useState(true);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     image: '',
     description: '',
   });
-
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUser = async () => {
       const data = await getUser();
+      setFormData(data);
       setLoading(false);
-      setUser(data);
     };
     fetchUser();
   }, []);
 
+  const isFormValid = () => {
+    const { name, email, image, description } = formData;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return (
+      name.trim() !== ''
+      && emailPattern.test(email)
+      && image.trim() !== ''
+      && description.trim() !== ''
+    );
+  };
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    updateUser(formData);
-    setButtonState(true);
+    setLoading(true);
+    await updateUser(formData);
+    setLoading(false);
     navigate('/profile');
   };
 
@@ -43,18 +52,12 @@ function ProfileEdit() {
     });
   };
 
-  console.log(formData);
-
   return (
     <main>
-      {loading && <Loading />}
-      {user && (
+      {loading ? (
+        <Loading />
+      ) : (
         <div>
-          <img
-            data-testid="profile-image"
-            src={ user.image }
-            alt="user"
-          />
           <h4>Editar perfil</h4>
           <form onSubmit={ handleSubmit }>
             <label htmlFor="name">
@@ -64,7 +67,7 @@ function ProfileEdit() {
                 type="text"
                 id="name"
                 name="name"
-                defaultValue={ user.name }
+                value={ formData.name }
                 onChange={ handleChange }
               />
             </label>
@@ -75,7 +78,18 @@ function ProfileEdit() {
                 data-testid="edit-input-email"
                 id="email"
                 name="email"
-                defaultValue={ user.email }
+                value={ formData.email }
+                onChange={ handleChange }
+              />
+            </label>
+            <label htmlFor="image">
+              Foto
+              <input
+                type="text"
+                data-testid="edit-input-image"
+                id="image"
+                name="image"
+                value={ formData.image }
                 onChange={ handleChange }
               />
             </label>
@@ -85,14 +99,14 @@ function ProfileEdit() {
                 data-testid="edit-input-description"
                 id="description"
                 name="description"
-                defaultValue={ user.description }
+                value={ formData.description }
                 onChange={ handleChange }
               />
             </label>
             <button
               type="submit"
               data-testid="edit-button-save"
-              // disabled={ buttonState }
+              disabled={ !isFormValid() }
             >
               Salvar
             </button>
