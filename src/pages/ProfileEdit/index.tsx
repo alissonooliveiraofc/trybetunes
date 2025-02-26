@@ -2,7 +2,6 @@ import { useEffect, useState, ChangeEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getUser, updateUser } from '../../services/userAPI';
 import Loading from '../../components/Loading';
-import { UserType } from '../../types';
 
 function ProfileEdit() {
   const [loading, setLoading] = useState(true);
@@ -60,6 +59,14 @@ function ProfileEdit() {
         <div>
           <h4>Editar perfil</h4>
           <form onSubmit={ handleSubmit }>
+            {formData.image && (
+              <img
+                data-testid="profile-image-preview"
+                src={ formData.image }
+                alt="Preview"
+                style={ { width: '150px', height: '150px', borderRadius: '50%' } }
+              />
+            )}
             <label htmlFor="name">
               Nome
               <input
@@ -83,7 +90,7 @@ function ProfileEdit() {
               />
             </label>
             <label htmlFor="image">
-              Foto
+              Foto (URL)
               <input
                 type="text"
                 data-testid="edit-input-image"
