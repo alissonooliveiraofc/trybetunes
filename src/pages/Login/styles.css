@@ -1,0 +1,75 @@
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background: linear-gradient(to bottom, #0018F4, rgba(8, 221, 210, 0.753)), url('../../images/BG AZUL.svg');
+  background-blend-mode: overlay;
+
+}
+
+main {
+  display: flex;
+  background: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 720px;
+  height: 400px;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  
+}
+
+main img {
+  width: 200px;
+}
+
+main input {
+  border: 2px solid #0018F4;
+  border-radius: 10px;
+  padding: 10px;
+  width: 40%;
+  font-size: 21px;
+  outline: none;
+  transition: border-color 0.3s;
+  color: blue;
+  text-align: center;
+  font-family: "Josefin Sans", serif;
+
+  &:focus {
+    border-color: #08DDD2;
+  }
+
+  &:focus::placeholder {
+    color: transparent;
+  }
+}
+
+main input::placeholder {
+  color: blue;
+}
+
+main button {
+  border-radius: 10px;
+  width: 40%;
+  font-family: "Josefin Sans", serif;
+  padding: 10px;
+  margin-top: -50px;
+  font-size: 21px;
+  background-color: blue;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bolder;
+  transition: background-color 0.3s ease;
+  border: none;
+
+  &:hover {
+    background-color: darkblue;
+    cursor: pointer;
+  }
+}

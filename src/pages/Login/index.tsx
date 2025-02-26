@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { createUser } from '../../services/userAPI';
+import './styles.css';
 
 function Login() {
   const navigate = useNavigate();
@@ -34,9 +35,10 @@ function Login() {
   }
 
   return (
-    <div>
+    <div className="login">
       {loading ? <h2>Carregando...</h2> : (
         <main>
+          <img src="src/images/image.png" alt="" />
           <input
             type="text"
             placeholder="Digite seu nome"
