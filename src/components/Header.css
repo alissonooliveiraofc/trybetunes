@@ -4,6 +4,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 40px;
+  width: 100%;
   background-color: white;
 }
 
