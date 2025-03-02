@@ -49,8 +49,15 @@ function Header() {
         </NavLink>
       </div>
 
-      <p data-testid="header-user-name">
-        {/* {' '} */}
+      <p
+        className="user-name"
+        data-testid="header-user-name"
+        style={ { fontSize: '12px' } }
+      >
+        <RiAccountCircleFill
+          size={ 20 }
+          style={ { marginRight: 10 } }
+        />
         {userName}
       </p>
     </header>

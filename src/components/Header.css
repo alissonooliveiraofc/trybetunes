@@ -6,16 +6,21 @@ header {
   padding: 40px;
   width: 100%;
   background-color: white;
+  min-width: 150px;
+  
 }
 
 header img {
   width: 150px;
+  position: fixed;
 }
 
 .links {
   display: flex;
   flex-direction: column;
   gap: 40px;
+  position: fixed;
+  top: 40%;
 }
 
 a {
@@ -25,4 +30,9 @@ a {
 
 .active {
   font-weight: bold;
+}
+
+.user-name {
+  position: fixed;
+  top: 90%;
 }
