@@ -1,5 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { HiSearch } from 'react-icons/hi';
+import { FaRegStar } from 'react-icons/fa';
+import { RiAccountCircleFill } from 'react-icons/ri';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
 import './Header.css';
@@ -23,9 +26,27 @@ function Header() {
     <header data-testid="header-component">
       <img src="src/images/image.png" alt="" />
       <div className="links">
-        <NavLink data-testid="link-to-search" to="/search">Pesquisa</NavLink>
-        <NavLink data-testid="link-to-favorites" to="/favorites">Favoritas</NavLink>
-        <NavLink data-testid="link-to-profile" to="/profile">Perfil</NavLink>
+        <NavLink data-testid="link-to-search" to="/search">
+          <HiSearch
+            size={ 20 }
+            style={ { marginRight: 10 } }
+          />
+          Pesquisa
+        </NavLink>
+        <NavLink data-testid="link-to-favorites" to="/favorites">
+          <FaRegStar
+            size={ 20 }
+            style={ { marginRight: 10 } }
+          />
+          Favoritas
+        </NavLink>
+        <NavLink data-testid="link-to-profile" to="/profile">
+          <RiAccountCircleFill
+            size={ 20 }
+            style={ { marginRight: 10 } }
+          />
+          Perfil
+        </NavLink>
       </div>
 
       <p data-testid="header-user-name">
