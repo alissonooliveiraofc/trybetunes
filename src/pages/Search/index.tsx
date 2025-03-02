@@ -69,36 +69,42 @@ function Search() {
         </button>
       </div>
 
-      {loading ? (
-        <Loading />
-      ) : null}
-
       {artist && (
-        <p>
+        <p
+          style={ { textAlign: 'center',
+            fontFamily: 'Josefin Sans',
+            marginTop: '50px' } }
+        >
           Resultado de álbuns de:
           {' '}
           {artist}
         </p>
       )}
+      <div className="result-container">
 
-      {errorApi && !loading && (
-        <p>{errorApi}</p>
-      )}
-      {apiData && (
-        <ul>
-          {apiData.map((album) => (
-            <li key={ album.collectionId }>
-              <Link
-                to={ `/album/${album.collectionId}` }
-                data-testid={ `link-to-album-${album.collectionId}` }
-              >
-                <img src={ album.artworkUrl100 } alt={ album.collectionName } />
-                <p>{album.collectionName}</p>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
+        {loading ? (
+          <Loading />
+        ) : null}
+
+        {errorApi && !loading && (
+          <p>{errorApi}</p>
+        )}
+        {apiData && (
+          <ul>
+            {apiData.map((album) => (
+              <li key={ album.collectionId }>
+                <Link
+                  to={ `/album/${album.collectionId}` }
+                  data-testid={ `link-to-album-${album.collectionId}` }
+                >
+                  <img src={ album.artworkUrl100 } alt={ album.collectionName } />
+                  <p>{album.collectionName}</p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
 
     </div>
   );

@@ -4,6 +4,7 @@
   min-width: 80%;
   min-height: 150px;
   background-color: #eFF3f9;
+  /* justify-content: center; */
 }
 
 .input-container {
@@ -67,4 +68,8 @@
   &:hover {
     background-color: #095e66f8;
   }
+}
+
+.result-container {
+  display: flex;
 }
