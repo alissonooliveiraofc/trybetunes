@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import searchAlbumsAPI from '../../services/searchAlbumsAPI';
 import Loading from '../../components/Loading';
 import { AlbumType } from '../../types';
+import './styles.css';
 
 function Search() {
   function onChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -46,7 +47,7 @@ function Search() {
   const [apiData, setApiData] = useState<AlbumType[] | null>();
 
   return (
-    <div>
+    <div className="search-container">
       <input
         type="text"
         data-testid="search-artist-input"
