@@ -1,4 +1,54 @@
 .search-container{
   display: flex;
   flex-direction: column;
+  min-width: 80%;
+  min-height: 150px;
+  background-color: #eFF3f9;
+}
+
+.input-container {
+  background-size: cover;
+  background-position: center;
+  background: linear-gradient(to bottom, #0018F4, rgba(8, 221, 210, 0.753)), url('../../images/BG AZUL.svg');
+  background-blend-mode: overlay;
+  min-height: 200px;
+  min-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-input{
+  width: 300px;
+  font-family: "Josefin Sans", serif;
+  border-radius: 20px;
+  height: 25px;
+  opacity: 0.8;
+  border: none;
+  text-align: center;
+  font-size: 18px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-button {
+  border-radius: 20px;
+  width: 104px;
+  font-family: "Josefin Sans", serif;
+  height: 20px;
+  border: none;
+  text-align: center;
+  font-size: 18px;
+  padding: 20px;
+  cursor: pointer;
+  background-color: #00D5E2;
+  color: white;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }

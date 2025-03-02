@@ -2,3 +2,13 @@ h3 {
   font-family: "Josefin Sans", serif;
   /* color: blue; */
 }
+
+.Loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-left: 80px;
+  flex-direction: column;
+  margin: 0 auto;
+}

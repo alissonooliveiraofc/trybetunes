@@ -48,21 +48,26 @@ function Search() {
 
   return (
     <div className="search-container">
-      <input
-        type="text"
-        data-testid="search-artist-input"
-        onChange={ (event) => onChange(event) }
-        value={ searchValue }
-        name="searchValue"
-      />
+      <div className="input-container">
+        <input
+          className="search-input"
+          type="text"
+          data-testid="search-artist-input"
+          onChange={ (event) => onChange(event) }
+          value={ searchValue }
+          name="searchValue"
+          placeholder="Digite sua Pesquisa"
+        />
 
-      <button
-        data-testid="search-artist-button"
-        disabled={ disabled }
-        onClick={ handleClick }
-      >
-        Pesquisar
-      </button>
+        <button
+          data-testid="search-artist-button"
+          disabled={ disabled }
+          onClick={ handleClick }
+          className="search-button"
+        >
+          Pesquisar
+        </button>
+      </div>
 
       {loading ? (
         <Loading />
