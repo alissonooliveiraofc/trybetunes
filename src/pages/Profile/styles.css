@@ -16,3 +16,23 @@
     }
   }
 }
+
+.profile-info form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.album-info div img {
+  
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: -50px;
+}
+
+.search-container {
+  font-family: "Josefin Sans", serif;
+}

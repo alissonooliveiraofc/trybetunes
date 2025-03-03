@@ -40,20 +40,20 @@ function Profile() {
       {loading && <Loading />}
       {user && (
         <div className="profile-info">
-          <img
-            data-testid="profile-image"
-            src={ user.image }
-            alt="user"
-          />
-          <Link to="/profile/edit">Editar perfil</Link>
+
           <h4>Nome</h4>
-          <p>{user.name}</p>
+          <p>
+
+            {user.name}
+          </p>
 
           <h4>Email</h4>
           <p>{user.email}</p>
 
           <h4>Descrição</h4>
           <p>{user.description}</p>
+
+          <Link to="/profile/edit">Editar perfil</Link>
         </div>
       )}
     </div>

@@ -52,75 +52,85 @@ function ProfileEdit() {
   };
 
   return (
-    <main>
+    <div className="search-container">
+      <div className="input-container">
+        <div className="album-info">
+          {formData && (
+            <div>
+              <img
+                data-testid="profile-image"
+                src={ formData.image }
+                alt="user"
+              />
+
+            </div>
+          )}
+        </div>
+      </div>
       {loading ? (
         <Loading />
       ) : (
-        <div>
-          <h4>Editar perfil</h4>
-          <form onSubmit={ handleSubmit }>
-            {formData.image && (
-              <img
-                data-testid="profile-image-preview"
-                src={ formData.image }
-                alt="Preview"
-                style={ { width: '150px', height: '150px', borderRadius: '50%' } }
-              />
-            )}
-            <label htmlFor="name">
-              Nome
-              <input
-                data-testid="edit-input-name"
-                type="text"
-                id="name"
-                name="name"
-                value={ formData.name }
-                onChange={ handleChange }
-              />
-            </label>
-            <label htmlFor="email">
-              Email
-              <input
-                type="email"
-                data-testid="edit-input-email"
-                id="email"
-                name="email"
-                value={ formData.email }
-                onChange={ handleChange }
-              />
-            </label>
-            <label htmlFor="image">
-              Foto (URL)
-              <input
-                type="text"
-                data-testid="edit-input-image"
-                id="image"
-                name="image"
-                value={ formData.image }
-                onChange={ handleChange }
-              />
-            </label>
-            <label htmlFor="description">
-              Descrição
-              <textarea
-                data-testid="edit-input-description"
-                id="description"
-                name="description"
-                value={ formData.description }
-                onChange={ handleChange }
-              />
-            </label>
-            <button
-              type="submit"
-              data-testid="edit-button-save"
-              disabled={ !isFormValid() }
-            >
-              Salvar
-            </button>
-          </form>
+        <div className="result-container2">
+          <div className="profile-info">
+            <h4>Editar perfil</h4>
+            <form onSubmit={ handleSubmit }>
+
+              <label htmlFor="name">
+                Nome
+                <input
+                  data-testid="edit-input-name"
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={ formData.name }
+                  onChange={ handleChange }
+                />
+              </label>
+              <label htmlFor="email">
+                Email
+                <input
+                  type="email"
+                  data-testid="edit-input-email"
+                  id="email"
+                  name="email"
+                  value={ formData.email }
+                  onChange={ handleChange }
+                />
+              </label>
+              <label htmlFor="image">
+                Foto (URL)
+                <input
+                  type="text"
+                  data-testid="edit-input-image"
+                  id="image"
+                  name="image"
+                  value={ formData.image }
+                  onChange={ handleChange }
+                />
+              </label>
+              <label htmlFor="description">
+                Descrição
+                <textarea
+                  data-testid="edit-input-description"
+                  id="description"
+                  name="description"
+                  value={ formData.description }
+                  onChange={ handleChange }
+                />
+              </label>
+              <button
+                type="submit"
+                data-testid="edit-button-save"
+                disabled={ !isFormValid() }
+              >
+                Salvar
+              </button>
+            </form>
+          </div>
         </div>
+
       )}
-    </main>
+    </div>
   );
 }
 
