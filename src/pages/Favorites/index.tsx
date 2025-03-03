@@ -27,10 +27,9 @@ function Favorites() {
   return (
     <div className="search-container">
       <div className="input-container">
-        <h1>Favoritos</h1>
+        <h1>Músicas Favoritas</h1>
       </div>
       <div className="result-container2">
-        <h4>Músicas Favoritas</h4>
         { loading && <Loading /> }
         {allFavoritesSongs.map((song) => (
           <MusicCard
