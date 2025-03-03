@@ -1,3 +1,27 @@
 p { 
   font-family: "Josefin Sans", serif;
 }
+
+.player {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  min-width: 700px;
+  align-content: center;
+}
+
+.music-card {
+  flex-flow: column wrap;
+  align-items: center;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.sumir {
+  display: none;
+}
+
+label img {
+  margin-left: 15px;
+}

@@ -46,34 +46,39 @@ function MusicCard({
   };
 
   return (
-    <div>
+    <div className="music-card">
       <p>{trackName}</p>
-      <audio data-testid="audio-component" src={ previewUrl } controls>
-        <track kind="captions" />
-        O seu navegador não suporta o elemento
-        {' '}
-        <code>audio</code>
-      </audio>
-      <label
-        htmlFor={ `checkbox-music-${trackId}` }
-        data-testid={ `checkbox-music-${trackId}` }
-      >
-        <input
-          type="checkbox"
-          name={ `checkbox-music-${trackId}` }
-          id={ `checkbox-music-${trackId}` }
-          checked={ favorited }
-          onChange={ handleFavoriteToggle }
-          disabled={ loading }
-        />
-        <img
-          src={ favorited ? checkedHeart : emptyHeart }
-          alt="favorite"
-        />
-      </label>
+      <div className="player">
 
+        <audio data-testid="audio-component" src={ previewUrl } controls>
+          <track kind="captions" />
+          O seu navegador não suporta o elemento
+          {' '}
+          <code>audio</code>
+        </audio>
+        <label
+          htmlFor={ `checkbox-music-${trackId}` }
+          data-testid={ `checkbox-music-${trackId}` }
+        >
+          <input
+            type="checkbox"
+            name={ `checkbox-music-${trackId}` }
+            id={ `checkbox-music-${trackId}` }
+            checked={ favorited }
+            onChange={ handleFavoriteToggle }
+            disabled={ loading }
+            className="sumir"
+          />
+          <img
+            src={ favorited ? checkedHeart : emptyHeart }
+            alt="favorite"
+          />
+        </label>
+
+        {loading && <p>Carregando...</p>}
+
+      </div>
       <hr style={ { border: '0.5px solid #ccc', width: '50%' } } />
-      {loading && <p>Carregando...</p>}
     </div>
   );
 }
