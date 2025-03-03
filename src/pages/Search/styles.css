@@ -4,6 +4,8 @@
   min-width: 80%;
   min-height: 150px;
   background-color: #eFF3f9;
+  align-items: center;
+  align-content: center;
 }
 
 .input-container {
@@ -74,18 +76,21 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  /* align-content: center; */
 }
 
 .link-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   margin-top: 60px;
+  text-align: center;
 }
 
 li {
   list-style: none;
   max-width: 170px;
+  margin: 10px;
 
 }
 
