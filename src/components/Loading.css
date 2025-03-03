@@ -7,8 +7,9 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
   margin-left: 80px;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 20%;
+  text-align: center;
 }

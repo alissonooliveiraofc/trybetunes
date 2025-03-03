@@ -90,7 +90,7 @@ function Search() {
           <p>{errorApi}</p>
         )}
         {apiData && (
-          <ul>
+          <ul className="link-list">
             {apiData.map((album) => (
               <li key={ album.collectionId }>
                 <Link
