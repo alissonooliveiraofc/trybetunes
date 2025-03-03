@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { getUser } from '../../services/userAPI';
 import Loading from '../../components/Loading';
 import { UserType } from '../../types';
+import './styles.css';
 
 function Profile() {
   const [loading, setLoading] = useState(true);
@@ -18,10 +19,27 @@ function Profile() {
   }, [user]);
 
   return (
-    <main>
+    <div className="search-container">
+      <div className="input-container">
+        <div className="album-info">
+          {user && (
+            <div>
+              <img
+                data-testid="profile-image"
+                src={ user.image }
+                alt="user"
+              />
+
+            </div>
+          )}
+        </div>
+
+      </div>
+
+      <div className="result-container2" />
       {loading && <Loading />}
       {user && (
-        <div>
+        <div className="profile-info">
           <img
             data-testid="profile-image"
             src={ user.image }
@@ -38,7 +56,7 @@ function Profile() {
           <p>{user.description}</p>
         </div>
       )}
-    </main>
+    </div>
   );
 }
 
