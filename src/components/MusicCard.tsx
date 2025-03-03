@@ -3,6 +3,7 @@ import { SongType } from '../types';
 import checkedHeart from '../images/checked_heart.png';
 import emptyHeart from '../images/empty_heart.png';
 import { addSong, removeSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import './MusicCard.css';
 
 interface MusicCardProps extends SongType {
   onFavoriteChange?: (trackId: number) => void;
@@ -70,6 +71,8 @@ function MusicCard({
           alt="favorite"
         />
       </label>
+
+      <hr style={ { border: '0.5px solid #ccc', width: '50%' } } />
       {loading && <p>Carregando...</p>}
     </div>
   );

@@ -34,14 +34,17 @@ function Album() {
                 height: '170px',
               } }
             />
-            <h1 data-testid="album-name">{allAlbuns[0].collectionName}</h1>
-            <h2 data-testid="artist-name">{allAlbuns[0].artistName}</h2>
+            <div className="names">
+              <h1 data-testid="album-name">{allAlbuns[0].collectionName}</h1>
+              <h2 data-testid="artist-name">{allAlbuns[0].artistName}</h2>
+            </div>
+
           </div>
         )}
 
       </div>
 
-      <div className="result-container">
+      <div className="result-container2">
         { allAlbuns && allAlbuns.slice(1).map((album) => (
           <div key={ album.trackName }>
             <MusicCard
