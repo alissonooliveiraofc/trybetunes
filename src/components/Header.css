@@ -35,4 +35,21 @@ a {
 .user-name {
   position: fixed;
   top: 90%;
+  left: 5%;
+}
+
+
+.user-info img {
+  border-radius: 50%;
+  width: 70px;
+  position: fixed; 
+  top: 80%;
+  left: 7.5%;
+
+}
+
+.user-info {
+  display: flex;
+  text-align: center;
+  justify-content: center;
 }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { RiAccountCircleFill } from 'react-icons/ri';
 import { getUser } from '../../services/userAPI';
 import Loading from '../../components/Loading';
 import { UserType } from '../../types';
@@ -22,15 +23,24 @@ function Profile() {
     <div className="search-container">
       <div className="input-container">
         <div className="album-info">
-          {user && (
+          {user?.image ? (
             <div>
               <img
                 data-testid="profile-image"
                 src={ user.image }
                 alt="user"
               />
-
             </div>
+          ) : (
+            <RiAccountCircleFill
+              size={ 350 }
+              style={ {
+                color: '#d3d3d3', // light gray color
+                position: 'absolute',
+                top: '50px',
+                left: '300px',
+              } }
+            />
           )}
         </div>
 
