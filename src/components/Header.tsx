@@ -15,12 +15,17 @@ function Header() {
   useEffect(() => {
     const fetchUser = async () => {
       const user = await getUser();
-      setUserName(user.name);
-      setUserImage(user.image);
+      if (user.name !== userName || user.image !== userImage) {
+        setUserName(user.name);
+        setUserImage(user.image);
+      }
       setIsLoading(false);
     };
     fetchUser();
-  }, [userImage]);
+    const intervalId = setInterval(fetchUser, 5000); // Fetch user data every 5 seconds
+
+    return () => clearInterval(intervalId); // Cleanup interval on component unmount
+  }, [userName, userImage]);
 
   if (isLoading) return <Loading />;
   return (

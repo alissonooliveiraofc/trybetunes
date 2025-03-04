@@ -58,11 +58,11 @@ function ProfileEdit() {
           {formData && (
             <div>
               <img
+                style={ { objectFit: 'cover' } }
                 data-testid="profile-image"
                 src={ formData.image }
                 alt="user"
               />
-
             </div>
           )}
         </div>
