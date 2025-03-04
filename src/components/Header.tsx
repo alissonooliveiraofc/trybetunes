@@ -45,11 +45,8 @@ function Header() {
           <img src={ userImage } alt="user" className="user-image" />
         ) : (
           <RiAccountCircleFill
-            size={ 20 }
-            style={ { marginRight: 10,
-              position: 'fixed',
-              top: '87%',
-              left: '9%',
+            size={ 30 }
+            style={ { textAlign: 'center', margin: '0 auto',
             } }
           />
         )}

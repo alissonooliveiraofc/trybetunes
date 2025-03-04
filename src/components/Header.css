@@ -33,23 +33,39 @@ a {
 }
 
 .user-name {
-  position: fixed;
-  top: 90%;
-  left: 5%;
+  /* position: fixed; */
+  /* top: 90%;
+  left: 2%; */
+  /* margin: 0 auto; */
 }
 
 
 .user-info img {
-  border-radius: 50%;
   width: 70px;
+  border-radius: 50%;
+  /*
   position: fixed; 
   top: 80%;
-  left: 7.5%;
+  left: 7.5%; */
 
 }
 
 .user-info {
   display: flex;
+  flex-direction: column;
   text-align: center;
   justify-content: center;
+  position: fixed;
+  top: 87%;
+  
+}
+
+.user-image {
+  display: flex;
+  position: fixed;
+  top: 74%;
+  left : 7%;
+  text-align: center ;
+  /* margin: 0 auto;
+  margin-top: -10px; Adjust this value as needed */
 }
