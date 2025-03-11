@@ -54,7 +54,7 @@ function Login() {
         </div>
       ) : (
         <main>
-          <img src="src/images/image.png" alt="" />
+          <img src="/images/image.png" alt="" />
           <input
             type="text"
             placeholder="Digite seu nome"
