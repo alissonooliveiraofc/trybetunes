@@ -30,7 +30,7 @@ function Header() {
   if (isLoading) return <Loading />;
   return (
     <header data-testid="header-component">
-      <img src="src/images/image.png" alt="logo" className="logo" />
+      <img src="images/image.png" alt="logo" className="logo" />
       <div className="links">
         <NavLink data-testid="link-to-search" to="/search">
           <HiSearch size={ 20 } style={ { marginRight: 10 } } />
