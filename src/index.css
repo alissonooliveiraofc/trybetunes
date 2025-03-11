@@ -26,3 +26,153 @@ form label {
   display: flex;
   flex-direction: column;
 }
+
+@media only screen and (max-width: 895px) {
+  .layout {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 875px) {
+  .layout {
+    width: 88%;
+  }
+}
+
+@media only screen and (max-width: 769px) {
+  .layout {
+    width: 88%;
+    min-width: none;
+  }
+  
+
+  .input-container {
+    flex-direction: column;
+  };
+}
+
+@media only screen and (max-width: 774px) {
+  .layout header {
+    margin: 0;
+    padding: 8px;
+  }
+
+  .layout header img {
+    width: 100px;
+  }
+}
+
+@media only screen and (max-width: 706px) {
+.layout {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .layout header {
+    margin: 0;
+    padding: 20px;
+    height: 50px;
+    margin-left: -50px;
+    margin-right: -50px;
+    align-content: center;
+    /* display: none; */
+    /* position: absolute; */
+  }
+
+  .layout header img {
+    width: 100px;
+  }
+/* 
+  .links {
+    position: fixed;
+    top: -150px;
+    
+  } */
+
+  .layout .input-container{
+    flex-direction: column;
+    display: flex;
+    width: 30%;
+  }
+
+  .search-container {
+    min-height: 100vh;
+  }
+}
+
+
+@media only screen and (max-width: 580px) {
+  .layout header {
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    min-width: 30%;
+    /* margin-right: -5px; */
+    padding: 0;
+    font-size: 12px;
+  }
+
+  .layout header img{
+    width: 70px;
+    padding: 30;
+  }
+
+  .layout .search-container .input-container{
+    width: 10%;
+    height: 150px;
+   
+  }
+
+  .layout .result-container {
+    width: 10%;
+  }
+  
+
+  .layout .search-container {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+.layout {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: row;
+
+}
+
+.layout header {
+  display: none;
+}
+
+.layout .search-container {
+  /* margin: 0 auto; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  /* margin-left: -50px; */
+  /* margin-right: -50px; */
+}
+
+.layout .search-container .input-container {
+  /* margin-top: 50px; */
+  display: flex;
+  text-align: center;
+  input {
+    width: 60%;
+  }
+
+}
+
+/* .layout header {
+  display: flex;
+  flex-flow: row;
+} */
+
+/* #root {
+  display: flex;
+  min-width: 300px;
+} */
+}
