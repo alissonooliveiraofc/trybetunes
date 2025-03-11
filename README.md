@@ -2,6 +2,10 @@
 
 Bem-vindo ao **TrybeTunes**! Este projeto permite que você busque músicas e álbuns usando a API do iTunes. Você pode pesquisar por cantores ou bandas, listar álbuns, adicionar suas músicas favoritas e editar seu perfil com dados e foto. Tudo isso com uma interface amigável e intuitiva! 🎧
 
+## 🌐 Veja o Projeto Online
+
+Acesse o projeto online através do [link](https://trybetunesweb.vercel.app/).
+
 ## 🚀 Funcionalidades
 
 - **Busca de Músicas**: Pesquise suas músicas favoritas usando a API do iTunes.
