@@ -14,7 +14,12 @@ Bem-vindo ao **TrybeTunes**! Este projeto permite que você busque músicas e á
 
 - **Vite**: Ferramenta de build rápida e moderna.
 - **TypeScript**: Superset do JavaScript que adiciona tipagem estática.
-- **React**: Biblioteca para construção de interfaces de usuário.
+- **Browser Router**: Gerencia a navegação do aplicativo.
+- **Routes**: Define as rotas e componentes associados.
+
+## 🌐 Sistema de Rotas
+
+O projeto utiliza o sistema de rotas para navegação entre as diferentes páginas, permitindo uma experiência de usuário mais fluida e organizada.
 
 ## 📱 Responsividade
 
